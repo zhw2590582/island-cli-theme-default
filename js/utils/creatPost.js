@@ -8,7 +8,7 @@ export default function creatPost(selector, page, posts) {
     const pageTotle = posts.slice((page - 1) * pageSize, page * pageSize);
     const postHtml = pageTotle.map(item => {
         return `
-        <div class="post-item flex">
+        <div class="post-item flex" data-type="${item.type || 'default'}">
             <div class="post-left flex-item">
                 ${item.type === 'wide' ? `
                     <div class="post-top">
@@ -24,7 +24,7 @@ export default function creatPost(selector, page, posts) {
                     ${item.sticky ? `<span class="lnr lnr-bookmark sticky fr" title="置顶文章"></span>` : ``}
                 </div>
             </div>
-            ${!item.type === 'wide' ? `
+            ${!item.type !== 'wide' ? `
                 <div class="post-right">
                     <a href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.name}" class="poster" style="background-image: url(${item.poster || creatPoster()});"></a>
                 </div>
