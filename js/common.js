@@ -3,10 +3,10 @@ import "app-loading/app-loading.min.css";
 import "highlight.js/styles/github.css";
 import '../sass/common';
 import '../sass/posts';
-import '../fonts/linearicons/style.css';
+import '../fonts/style.css';
 import "../sass/utils/tui-editor-contents.css";
 import { scrollFixed, creatPoster } from "./utils/index";
-import database from '../database/index.json';
+import database from '../../../data/database/index.json';
 window.database = database;
 
 // 加载条

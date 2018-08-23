@@ -1,5 +1,5 @@
 import mediumZoom from 'medium-zoom';
-import { postConfig } from "../../config";
+import { postConfig } from "../../../data/config";
 import { getURLParameters, scrollDirection, relative, setTitle, creatPoster, scrollFixed, smoothScroll } from "./utils";
 const { name } = getURLParameters();
 const { relatedPost } = postConfig;
@@ -20,7 +20,7 @@ $mata.innerHTML = metaData.topic.split(',').map(item => {
   return `<a href="/archive.html?topic=${encodeURIComponent(item.trim())}" title="${item.trim()}" class="topic">${item.trim()}</a>`
 }).join('<span class="dot"></span>') + `<span class="dot"></span>` + `<span class="time" title="${metaData.creatDate}">${relative(metaData.creatDate)}</span>`;
 
-import(/* webpackChunkName: "post" */ `../posts/${name}/post.md`)
+import(/* webpackChunkName: "post" */ `../../../data/posts/${name}/post.md`)
   .then(module => {
     const postData = module.default;
     setTimeout(() => {
