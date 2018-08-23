@@ -1,11 +1,13 @@
 import "../sass/pages";
 import "../sass/archive";
-import { getURLParameters, relative } from "./utils";
+import { getURLParameters, relative, setTitle } from "./utils";
 let { search, topic }  = getURLParameters();
+
+setTitle('归档');
 search = decodeURIComponent(search).toLowerCase();
 topic = decodeURIComponent(topic).toLowerCase();
-const $archiveHeader = document.querySelector(".archive-header");
-const $archiveList = document.querySelector(".archive-posts");
+const $archiveHeader = document.querySelector(".archive-page .header-title span");
+const $archiveList = document.querySelector(".archive-page .content");
 let posts = [];
 
 if (search !== 'undefined') {
@@ -30,7 +32,7 @@ const archiveHtml = posts.map(item => {
             <div class="meta clearfix">
                 ${item.topic.split(',').map(item => `<a href="/archive.html?topic=${encodeURIComponent(item.trim())}" title="${item.trim()}" class="topic">${item.trim()}</a>`).join('<span class="dot"></span>')}
                 <span class="dot"></span>
-                <span class="time" title="${item.creatDate}">${item.creatDate}</span>
+                <span class="time" title="${item.creatDate}">${relative(item.creatDate)}</span>
             </div>
         </div>
     `;

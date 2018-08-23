@@ -57,7 +57,7 @@ scrollDirection(direction => {
 scrollFixed('.post-nav', 80);
 
 function creatNav() {
-  if (metaData.wide) {
+  if (metaData.type === 'wide') {
     $page.insertAdjacentHTML("afterbegin", `<div class="post-poster"><img src="${metaData.poster}" alt="${metaData.title}" /></div>`);
   } else {
     $nav.insertAdjacentHTML("afterbegin", `<div class="poster" style="background-image: url(${metaData.poster || creatPoster()})"></div>`);

@@ -1,6 +1,6 @@
 import loading from 'app-loading';
 import config from "../../../../data/config";
-import { urlUpdate, setTitle, creatPoster, relative } from "./index";
+import { creatPoster, relative } from "./index";
 const pageSize = config.web.post.pageSize;
 
 export default function creatPost(selector, page, posts) {
@@ -10,7 +10,7 @@ export default function creatPost(selector, page, posts) {
         return `
         <div class="post-item flex">
             <div class="post-left flex-item">
-                ${item.wide ? `
+                ${item.type === 'wide' ? `
                     <div class="post-top">
                         <a href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.name}" class="poster" style="background-image: url(${item.poster || creatPoster()});"></a>
                     </div>
@@ -24,7 +24,7 @@ export default function creatPost(selector, page, posts) {
                     ${item.sticky ? `<span class="lnr lnr-bookmark sticky fr" title="置顶文章"></span>` : ``}
                 </div>
             </div>
-            ${!item.wide ? `
+            ${!item.type === 'wide' ? `
                 <div class="post-right">
                     <a href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.name}" class="poster" style="background-image: url(${item.poster || creatPoster()});"></a>
                 </div>

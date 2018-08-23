@@ -1,4 +1,7 @@
+import { setTitle } from "./utils";
 import "../sass/editor";
+
+setTitle('编辑器');
 const iframeEl = document.querySelector(".editor-page");
 const iframeHeight = document.body.clientHeight - 50;
 iframeEl.style.height = iframeHeight + 'px';

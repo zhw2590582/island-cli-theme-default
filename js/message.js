@@ -1,3 +1,5 @@
+import { setTitle } from "./utils";
 import "../sass/pages";
 import "../sass/message";
-console.log("message");
+
+setTitle('留言');

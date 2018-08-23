@@ -1,3 +1,5 @@
+import { setTitle } from "./utils";
 import "../sass/pages";
 import "../sass/about";
-console.log("about");
+
+setTitle('关于');
