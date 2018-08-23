@@ -3,7 +3,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/zh-cn';
 dayjs.extend(relativeTime);
 dayjs.locale('zh-cn');
-import { webConfig, postConfig } from "../../../../data/config";
+import { web } from "../../../../data/config";
 
 // 判读是否手机环境
 export function isMobile() {
@@ -86,7 +86,7 @@ export function infiniteScroll(callback) {
 
 // 设置标题
 export function setTitle(subTitle, callback) {
-  window.document.title = `${subTitle} - ${webConfig.title}`;
+  window.document.title = `${subTitle} - ${web.title}`;
   callback && callback();
 }
 
@@ -115,7 +115,7 @@ export function creatPoster() {
     Math.floor(Math.random() * (max - min + 1)) + min;
   return `/static/img/posters/img${randomIntegerInRange(
     1,
-    postConfig.posterSize
+    web.post.posterSize
   )}.png`;
 }
 

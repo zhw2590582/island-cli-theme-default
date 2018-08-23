@@ -1,8 +1,8 @@
 import mediumZoom from 'medium-zoom';
-import { postConfig } from "../../../data/config";
+import { web } from "../../../data/config";
 import { getURLParameters, scrollDirection, relative, setTitle, creatPoster, scrollFixed, smoothScroll } from "./utils";
 const { name } = getURLParameters();
-const { relatedPost } = postConfig;
+const relatedPost = web.post.relatedPost;
 
 const $header = document.querySelector('.header');
 const $page = document.querySelector('.post-page');
