@@ -5,6 +5,11 @@ dayjs.extend(relativeTime);
 dayjs.locale('zh-cn');
 import { web } from "../../../../data/config";
 
+// 主题路径
+export function path(url) {
+  return `src/theme/default${url}`;
+}
+
 // 判读是否手机环境
 export function isMobile() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -111,12 +116,8 @@ export function scrollFixed(selector, distance = 0) {
 
 // 随机特色图
 export function creatPoster() {
-  const randomIntegerInRange = (min, max) =>
-    Math.floor(Math.random() * (max - min + 1)) + min;
-  return `/static/img/posters/img${randomIntegerInRange(
-    1,
-    web.post.posterSize
-  )}.png`;
+  const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+  return path(`/img/posters/img${randomIntegerInRange(1, web.post.posterSize)}.png`);
 }
 
 // 判断滚动方向
