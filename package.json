@@ -1,0 +1,27 @@
+{
+  "name": "island-cli-theme-default",
+  "version": "1.0.0",
+  "description": "Island 博客默认主题",
+  "license": "MIT",
+  "repository": "zhw2590582/island-cli-theme-default",
+  "authors": [
+    "Harvey Zack <laozhaochaguan@gmail.com>"
+  ],
+  "keywords": [
+    "island",
+    "cli",
+    "theme",
+    "default"
+  ],
+  "bugs": {
+    "url": "https://github.com/zhw2590582/island-cli-theme-default/issues"
+  },
+  "homepage": "https://github.com/zhw2590582/island-cli-theme-default#readme",
+  "dependencies": {
+    "app-loading": "^0.0.51",
+    "dayjs": "^1.7.5",
+    "highlight.js": "^9.12.0",
+    "medium-zoom": "^0.4.0",
+    "normalize.css": "^8.0.0"
+  }
+}
