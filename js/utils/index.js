@@ -117,7 +117,7 @@ export function scrollFixed(selector, distance = 0) {
 // 随机特色图
 export function creatPoster() {
   const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-  return path(`/img/posters/img${randomIntegerInRange(1, web.post.posterSize)}.png`);
+  return path(`/img/poster/img${randomIntegerInRange(1, web.post.posterSize)}.png`);
 }
 
 // 判断滚动方向
