@@ -3,12 +3,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/zh-cn';
 dayjs.extend(relativeTime);
 dayjs.locale('zh-cn');
-import { web } from "../../../../data/config";
-
-// 主题路径
-export function path(url) {
-  return `src/theme/default${url}`;
-}
+import { web, dev } from "../../../../data/config";
 
 // 判读是否手机环境
 export function isMobile() {
@@ -114,10 +109,15 @@ export function scrollFixed(selector, distance = 0) {
   }
 }
 
+// 主题路径
+export function path(url) {
+  return `src/theme/default${url}`;
+}
+
 // 随机特色图
 export function creatPoster() {
   const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-  return path(`/img/poster/img${randomIntegerInRange(1, web.post.posterSize)}.png`);
+  return dev.publicPath + path(`/img/poster/img${randomIntegerInRange(1, web.post.posterSize)}.png`);
 }
 
 // 判断滚动方向
