@@ -24,7 +24,7 @@ export default function creatPost(selector, page, posts) {
                     ${item.sticky ? `<span class="lnr lnr-bookmark sticky fr" title="置顶文章"></span>` : ``}
                 </div>
             </div>
-            ${!item.type !== 'wide' ? `
+            ${item.type !== 'wide' ? `
                 <div class="post-right">
                     <a href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.name}" class="poster" style="background-image: url(${item.poster || creatPoster()});"></a>
                 </div>
