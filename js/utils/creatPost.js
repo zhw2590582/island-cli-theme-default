@@ -21,7 +21,7 @@ export default function creatPost(selector, page, posts) {
                     ${item.topic.split(',').map(item => `<a href="/archive.html?topic=${encodeURIComponent(item.trim())}" title="${item.trim()}" class="topic">${item.trim()}</a>`).join('<span class="dot"></span>')}
                     <span class="dot"></span>
                     <span class="time" title="${item.creatDate}">${relative(item.creatDate)}</span>
-                    ${item.sticky ? `<span class="lnr lnr-bookmark sticky fr" title="置顶文章"></span>` : ``}
+                    ${item.sticky ? `<span class="icon-bookmark sticky fr" title="置顶文章"></span>` : ``}
                 </div>
             </div>
             ${item.type !== 'wide' ? `
