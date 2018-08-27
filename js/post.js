@@ -18,7 +18,7 @@ setTitle(metaData.title);
 $title.innerHTML = metaData.title;
 $mata.innerHTML = metaData.topic.split(',').map(item => {
   return `<a href="/archive.html?topic=${encodeURIComponent(item.trim())}" title="${item.trim()}" class="topic">${item.trim()}</a>`
-}).join('<span class="dot"></span>') + `<span class="dot"></span>` + `<span class="time" title="${metaData.creatDate}">${relative(metaData.creatDate)}</span>`;
+}).join('<span class="dot"></span>') + `<span class="dot"></span>` + `<span class="time" title="${metaData.creatDate}">发布于 ${relative(metaData.creatDate)}</span>`;
 
 import(/* webpackChunkName: "post" */ `../../../data/posts/${name}/post.md`)
   .then(module => {
@@ -42,7 +42,7 @@ window.database.posts.some((item, index) => {
       <div class="related-item flex-item text-ellipsis">
           <a class="poster" href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.title}" style="background-image: url(${item.poster || creatPoster()});"></a>
           <a class="title" href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.title}">${item.title}</a>
-          <div class="time" title="${item.creatDate}">${relative(item.creatDate)}</div>
+          <div class="time" title="${item.creatDate}">发布于 ${relative(item.creatDate)}</div>
       </div>
     `)
   }

@@ -20,7 +20,7 @@ export default function creatPost(selector, page, posts) {
                 <div class="meta clearfix">
                     ${item.topic.split(',').map(item => `<a href="/archive.html?topic=${encodeURIComponent(item.trim())}" title="${item.trim()}" class="topic">${item.trim()}</a>`).join('<span class="dot"></span>')}
                     <span class="dot"></span>
-                    <span class="time" title="${item.creatDate}">${relative(item.creatDate)}</span>
+                    <span class="time" title="${item.creatDate}">发布于 ${relative(item.creatDate)}</span>
                     ${item.sticky ? `<span class="icon-bookmark sticky fr" title="置顶文章"></span>` : ``}
                 </div>
             </div>

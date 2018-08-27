@@ -32,7 +32,7 @@ const archiveHtml = posts.map(item => {
             <div class="meta clearfix">
                 ${item.topic.split(',').map(item => `<a href="/archive.html?topic=${encodeURIComponent(item.trim())}" title="${item.trim()}" class="topic">${item.trim()}</a>`).join('<span class="dot"></span>')}
                 <span class="dot"></span>
-                <span class="time" title="${item.creatDate}">${relative(item.creatDate)}</span>
+                <span class="time" title="${item.creatDate}">发布于 ${relative(item.creatDate)}</span>
             </div>
         </div>
     `;
