@@ -5,9 +5,14 @@ import '../sass/common';
 import '../sass/posts';
 import '../fonts/style.css';
 import "../sass/utils/tui-editor-contents.css";
-import { scrollFixed, creatPoster } from "./utils/index";
+import "../sass/utils/mobile.scss";
+import { scrollFixed, creatPoster, isMobile } from "./utils/index";
 import database from '../../../data/database/index.json';
 window.database = database;
+
+if (isMobile()) {
+    document.querySelector('body').classList.add('mobile');
+}
 
 // 加载条
 loading.setColor('#000').start();
@@ -43,11 +48,13 @@ document.addEventListener('click', e => {
 });
 
 // 滚动固定侧边栏
-scrollFixed('.scroll-fixed', 60);
+if (!isMobile()) {
+    scrollFixed('.scroll-fixed', 60);
+}
 
 // 热门话题
 const topicEl = document.querySelector(".widget.topic .content");
-if (topicEl) {
+if (topicEl && !isMobile()) {
     const topicObj = {};
     window.database.posts.forEach(post => {
         post.topic.split(',').forEach(item => {
@@ -66,7 +73,7 @@ if (topicEl) {
 
 // 近期文章
 const recentEl = document.querySelector(".widget.recent .content");
-if (recentEl) {
+if (recentEl && !isMobile()) {
     const recentHtml = window.database.posts.slice(0, 5).map(post => {
         return `
             <div class="recent-item flex">

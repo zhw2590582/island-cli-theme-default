@@ -1,6 +1,6 @@
 import mediumZoom from 'medium-zoom';
 import { web } from "../../../data/config";
-import { getURLParameters, scrollDirection, relative, setTitle, creatPoster, scrollFixed, smoothScroll } from "./utils";
+import { getURLParameters, scrollDirection, relative, setTitle, creatPoster, scrollFixed, smoothScroll, isMobile } from "./utils";
 const { name } = getURLParameters();
 const relatedPost = web.post.relatedPost;
 
@@ -25,7 +25,7 @@ import(/* webpackChunkName: "post" */ `../../../data/posts/${name}/post.md`)
     const postData = module.default;
     setTimeout(() => {
       $content.innerHTML = postData;
-      creatNav();
+      !isMobile() && creatNav();
       mediumZoom('.post-page .post-content img');
     }, 500);
   })
@@ -50,11 +50,13 @@ window.database.posts.some((item, index) => {
 });
 $related.insertAdjacentHTML("beforeend", relatedHtml.join(''));
 
-scrollDirection(direction => {
-  $header.dataset.scrollDirection = direction;
-});
-
-scrollFixed('.post-nav', 80);
+if (!isMobile()) {
+  scrollDirection(direction => {
+    $header.dataset.scrollDirection = direction;
+  });
+  
+  scrollFixed('.post-nav', 80);
+}
 
 function creatNav() {
   if (metaData.type === 'wide') {

@@ -1,6 +1,6 @@
 import loading from 'app-loading';
 import config from "../../../../data/config";
-import { creatPoster, relative } from "./index";
+import { creatPoster, relative, isMobile } from "./index";
 const pageSize = config.web.post.pageSize;
 
 export default function creatPost(selector, page, posts) {
@@ -10,7 +10,7 @@ export default function creatPost(selector, page, posts) {
         return `
         <div class="post-item flex" data-type="${item.type || 'default'}">
             <div class="post-left flex-item">
-                ${item.type === 'wide' ? `
+                ${item.type === 'wide' && !isMobile() ? `
                     <div class="post-top">
                         <a href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.name}" class="poster" style="background-image: url(${item.poster || creatPoster()});"></a>
                     </div>
@@ -24,7 +24,7 @@ export default function creatPost(selector, page, posts) {
                     ${item.sticky ? `<span class="icon-bookmark sticky fr" title="置顶文章"></span>` : ``}
                 </div>
             </div>
-            ${item.type !== 'wide' ? `
+            ${item.type !== 'wide' && !isMobile() ? `
                 <div class="post-right">
                     <a href="/post.html?name=${encodeURIComponent(item.name)}" title="${item.name}" class="poster" style="background-image: url(${item.poster || creatPoster()});"></a>
                 </div>
